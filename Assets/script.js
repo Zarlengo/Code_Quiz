@@ -19,6 +19,7 @@ let highscore_list = document.querySelector("#score_list");
 
 document.querySelector("#start-button").addEventListener("click", startQuiz);
 document.querySelector("#play_again").addEventListener("click", startQuiz);
+document.querySelector("#play").addEventListener("click", startQuiz);
 buttonA.addEventListener("click", answerQuestion);
 buttonB.addEventListener("click", answerQuestion);
 buttonC.addEventListener("click", answerQuestion);
@@ -50,6 +51,8 @@ function startQuiz() {
     document.querySelector(".highscores").style.display = "none";
     document.querySelector(".results").style.display = "none";
     document.querySelector(".cards").style.display = "block";
+    document.querySelector(".input_record").style.display = "block";
+    
     fillHTML();
 }
 
@@ -115,6 +118,9 @@ function answerQuestion() {
 function quizOver() {
     score = parseInt(timer_text.textContent);
     document.querySelector("#result-content").textContent = `Your score was ${score}`;
+    if (score <= 0) {
+        document.querySelector(".input_record").style.display = "none";
+    }
     document.querySelector(".instruction").style.display = "none";
     document.querySelector(".highscores").style.display = "none";
     document.querySelector(".cards").style.display = "none";
@@ -128,7 +134,7 @@ document.querySelector("#submit").addEventListener("click", function() {
         name: document.querySelector("#name").value,
         score: score
     };
-    if (user.name != "") {
+    if (user.name != "" || user.score != 0) {
 
         // get most recent submission
         var score_list = JSON.parse(localStorage.getItem("user"));
@@ -150,6 +156,7 @@ function show_highscores() {
     var score_list = JSON.parse(localStorage.getItem("user"));
     console.log(score_list);
     if (score_list != null) {
+        score_list.sort(object_compare);
         for (let i = 0; i < score_list.length; i++) {
             let score_line = document.createElement("div");
             score_line.textContent = `${score_list[i].score}: ${score_list[i].name}`;
@@ -167,11 +174,15 @@ function show_highscores() {
     document.querySelector(".instruction").style.display = "none";
     document.querySelector(".cards").style.display = "none";
     document.querySelector(".results").style.display = "none";
-    document.querySelector(".highscores").style.display = "block";
+    document.querySelector(".highscores").style.display = "flex";
 
 }
 
-
+function object_compare(a, b) {
+    if (a.score < b.score) return 1;
+    if (b.score < a.score) return -1;
+    return 0;
+}
 
 document.querySelector("#clear").addEventListener("click", function() {
     document.activeElement.blur();
