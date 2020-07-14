@@ -1,0 +1,97 @@
+:root {
+    --dark-back-color: #333;
+    --dark-back-font-color: #fff;
+}
+
+* {
+    /* box-sizing: border-box; */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    height: 45px;
+    width: 100%;
+    background: var(--dark-back-color);
+    color: var(--dark-back-font-color);
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 18px;
+}
+
+.content {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 18px;
+}
+
+.nav {
+    padding: 10px 40px;
+}
+
+.nav-center {
+    font-size: 24px;
+}
+
+.main {
+    margin: 50px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+button {
+    margin: 30px;
+    padding: 5px 15px;
+    background: var(--dark-back-color);
+    color: var(--dark-back-font-color);
+    border-radius: 10px;
+}
+
+.answer-buttons {
+    display: block;
+    margin: 10px 30px;
+}
+
+.question {
+    text-align: justify;
+}
+
+.cards, .results {    
+    display: none;
+}
+
+.status-bars {
+    display: none;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 0.5px solid black;
+    border-left: 0.5px solid black;
+}
+
+.status-content {
+    width: 125px;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    top: 50px;
+    display: none;
+}
+
+.odd {
+  background-color: lightgray;
+}
+
+.even {
+  background-color: gray;
+}
+
+@media (min-width: 750px) {
+    .status-bars {
+        display: block;
+    }
+
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <!-- Quiz Questions -->
+    <script src="./assets/HTMLQuestions.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div id="highscores" class="nav nav-left">View Highscores</div>
+            <div class="nav nav-center">Code Quiz</div>
+            <div class="nav nav-right">Timer Remaining: <span id="timer">60</span></div>
+        </nav>
+    </header>
+    <section class="instruction main">
+        <h1>Coding Quiz Challenge</h1><br>
+        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+        <button id="start-button">Start Quiz</button>
+    </section>
+    <section class="highscores main">
+        <article id="score_list">
+        </article>
+        <button id="play_again">Play Again?</button>
+        <button id="clear">Clear Highscores</button>
+    </section>
+    <section class="content">
+        <section class="cards main">
+            <h2 id="question-title">QUESTION TITLE GOES HERE</h2><br>
+            <p id="question-content" class="question">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur non porro quaerat, repellat vitae eos illo nemo? Pariatur magnam distinctio fuga, necessitatibus, corrupti impedit ea omnis consequuntur, quam sequi rem.</p><br>
+            <article class="answers">
+                <button id="a" class="answer-buttons">A.&nbsp;&nbsp;ANSWER FOR A</button>
+                <button id="b" class="answer-buttons">B.&nbsp;&nbsp;ANSWER FOR B</button>
+                <button id="c" class="answer-buttons">C.&nbsp;&nbsp;ANSWER FOR C</button>
+                <button id="d" class="answer-buttons">D.&nbsp;&nbsp;ANSWER FOR D</button>
+                <hr>
+                <p id="answer-result"></p>
+            </article>
+        </section>
+        <section class="results main">
+            <h2>Quiz Over</h2><br>
+            <p id="result-content"></p><br>
+            
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" name="name">
+                <button id="submit">Submit</button>
+            </form>
+            
+        </section>
+        <aside class="status-content"></aside>
+    </section>
+    <footer>
+    </footer>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
