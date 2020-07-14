@@ -155,14 +155,14 @@ var CSSquestions = [
 	},
 	{
 		title:"Question 15",
-		question:`The default value of "position" attribute is ___.`,
+		question:"What is the default value of the position property?",
 		answers:{
 			a:"fixed",
 			b:"absolute",
-			c:"inherit",
+			c:"static",
 			d:"relative"
 		},
-		answer:"d"
+		answer:"c"
 	},
 	{
 		title:"Question 16",
@@ -183,6 +183,83 @@ var CSSquestions = [
 			b:"a {text-decoration:none;}",
 			c:"a {text-style: no-underline;}",
 			d:"a {text-decoration: no-underline;}"
+		},
+		answer:"b"
+	},
+	{
+		title:"Question 18",
+		question:"What does CSS stand for?",
+		answers:{
+			a:"Computer Style Sheets",
+			b:"Cascading Style Sheets",
+			c:"Creative Style Sheets",
+			d:"Colorful Style Sheets"
+		},
+		answer:"b"
+	},
+	{
+		title:"Question 19",
+		question:"Which HTML attribute is used to define inline styles?",
+		answers:{
+			a:"class",
+			b:"style",
+			c:"styles",
+			d:"font"
+		},
+		answer:"b"
+	},
+	{
+		title:"Question 20",
+		question:"Which is the correct CSS syntax?",
+		answers:{
+			a:"body {color: black;}",
+			b:"{body;color:black;}",
+			c:"body:color=black;",
+			d:"{body:color=black;}"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 21",
+		question:"What is the correct CSS syntax for making all the <p> elements bold?",
+		answers:{
+			a:`<p style="font-size:bold;>`,
+			b:`<p style="text-size:bold;>`,
+			c:"p {font-weight:bold;}",
+			d:"p {text-size:bold;}"
+		},
+		answer:"c"
+	},
+	{
+		title:"Question 22",
+		question:"How do you make each word in a text start with a capital letter?",
+		answers:{
+			a:"text-transform:capitalize",
+			b:"You can't do that with CSS",
+			c:"text-style:capitalize",
+			d:"transform:capitalize"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 23",
+		question:"How do you select an element with id 'demo'?",
+		answers:{
+			a:"demo",
+			b:"*demo",
+			c:".demo",
+			d:"#demo"
+		},
+		answer:"d"
+	},
+	{
+		title:"Question 24",
+		question:"How do you select elements with class name 'test'?",
+		answers:{
+			a:".test",
+			b:"*test",
+			c:"test",
+			d:"#test"
 		},
 		answer:"a"
 	}

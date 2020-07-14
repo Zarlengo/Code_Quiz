@@ -305,7 +305,7 @@ var HTMLquestions= [
 			c:"<list>",
 			d:"<ul>"
 		},
-		answer:""
+		answer:"b"
 	},
 	{
 		title:"Question 29",
@@ -370,6 +370,127 @@ var HTMLquestions= [
 			b:"<title>",
 			c:"<body>",
 			d:"<html>"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 35",
+		question:"Who is making the Web standards?",
+		answers:{
+			a:"The World Wide Web Consortium",
+			b:"Microsoft",
+			c:"Google",
+			d:"Mozilla"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 36",
+		question:"Choose the correct HTML element for the largest heading:",
+		answers:{
+			a:"<h6>",
+			b:"<heading>",
+			c:"<h1>",
+			d:"<head>"
+		},
+		answer:"c"
+	},
+	{
+		title:"Question 37",
+		question:"Choose the correct HTML element to define important text",
+		answers:{
+			a:"<strong>",
+			b:"<b>",
+			c:"<i>",
+			d:"<important>"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 38",
+		question:"What is the correct HTML for making a text input field?",
+		answers:{
+			a:`<input type="textfield">`,
+			b:`<textinput type="text">`,
+			c:"<textfield>",
+			d:`<input type="text">`
+		},
+		answer:"d"
+	},
+	{
+		title:"Question 39",
+		question:"Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
+		answers:{
+			a:"title",
+			b:"alt",
+			c:"src",
+			d:"longdesc"
+		},
+		answer:"b"
+	},
+	{
+		title:"Question 40",
+		question:`The HTML global attribute, "contenteditable" is used to:`,
+		answers:{
+			a:"Specify whether the content of an element should be editable or not",
+			b:"Update content from the server",
+			c:"Return the position of the first found occurrence of content inside a string",
+			d:"Specifies a context menu for an element. The menu appears when a user right-clicks on the element"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 41",
+		question:"The HTML <canvas> element is used to:",
+		answers:{
+			a:"draw graphics",
+			b:"display database records",
+			c:"create draggable elements",
+			d:"manipulate data in MySQL"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 42",
+		question:"In HTML, which attribute is used to specify that an input field must be filled out?",
+		answers:{
+			a:"validate",
+			b:"required",
+			c:"placeholder",
+			d:"formvalidate"
+		},
+		answer:"b"
+	},
+	{
+		title:"Question 43",
+		question:"Which input type defines a slider control?",
+		answers:{
+			a:"range",
+			b:"slider",
+			c:"controls",
+			d:"search"
+		},
+		answer:"a"
+	},
+	{
+		title:"Question 44",
+		question:"Which HTML element is used to display a scalar measurement within a range?",
+		answers:{
+			a:"<range>",
+			b:"<measure>",
+			c:"<gauge>",
+			d:"<meter>"
+		},
+		answer:"d"
+	},
+	{
+		title:"Question 45",
+		question:"Which HTML element is used to specify a header for a document or section?",
+		answers:{
+			a:"<header>",
+			b:"<head>",
+			c:"<section>",
+			d:"<top>"
 		},
 		answer:"a"
 	}

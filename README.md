@@ -9,4 +9,6 @@
 * Question list on the side shows correct / wrong results for previous questions.
 
 
-Questions and answers were gathered from [ExamTiger.Com](https://www.examtiger.com/)
+Questions and answers were gathered from:
+1. [ExamTiger.Com](https://www.examtiger.com/)
+2. [W3Schools.Com](https://www.w3schools.com/quiztest/default.asp)

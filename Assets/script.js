@@ -245,7 +245,7 @@ function answerQuestion() {
             timer_text.textContent = new_timer;
         }
         runTimer(new_timer);
-        response.textContent = `Wrong, the correct answer was: ${questions[number].answers[questions[number].answer]}`;
+        show_response_timed(`Wrong, the correct answer was: ${questions[number].answers[questions[number].answer]}`);
     }
 
     // Moves to the next question
