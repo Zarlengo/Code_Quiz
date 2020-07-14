@@ -1,4 +1,4 @@
-# Code_Quiz
+# Code Quiz
 
 ![website snapshot](./Assets/example.jpg)
 
