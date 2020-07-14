@@ -9,6 +9,8 @@ let questions;
 let timer;
 let response_timer;
 let score;
+let question_bank = {};
+let quiz;
 
 // Storing HTML elements as variables
 let question_title = document.querySelector("#question-title")
@@ -23,14 +25,34 @@ let footer = document.querySelector("footer");
 let status_section = document.querySelector(".status-content");
 let highscore_list = document.querySelector("#score_list");
 
-// creating actions for html elements
-document.querySelector("#start-button").addEventListener("click", startQuiz);
-document.querySelector("#play_again").addEventListener("click", startQuiz);
-document.querySelector("#play").addEventListener("click", startQuiz);
+// Creating multiple quiz options
+document.querySelector("#HTML-button").addEventListener("click", startQuiz);
+question_bank["HTML"] = HTMLquestions;
+
+document.querySelector("#CSS-button").addEventListener("click", startQuiz);
+question_bank["CSS"] = CSSquestions;
+
+document.querySelector("#JS-button").addEventListener("click", startQuiz);
+question_bank["JS"] = JSquestions;
+
+document.querySelector("#jQuery-button").addEventListener("click", startQuiz);
+question_bank["jQuery"] = jQueryQuestions;
+
+document.querySelector("#Bootstrap-button").addEventListener("click", startQuiz);
+question_bank["Bootstrap"] = BootstrapQuestions;
+
+// Creating actions for to return to the instructions
+document.querySelector("#play_again").addEventListener("click", homePage);
+document.querySelector("#play").addEventListener("click", homePage);
+document.querySelector(".nav-center").addEventListener("click", homePage);
+
+// Creating actions for each question button
 buttonA.addEventListener("click", answerQuestion);
 buttonB.addEventListener("click", answerQuestion);
 buttonC.addEventListener("click", answerQuestion);
 buttonD.addEventListener("click", answerQuestion);
+
+//Creating action for the "View Highscores" in the header
 document.querySelector("#highscores").addEventListener("click", show_highscores);
 
 // Clicking the submit button on the finished screen
@@ -44,6 +66,7 @@ document.querySelector("#submit").addEventListener("click", function() {
     // Creates a new object with the current score and name
     var user = {
         name: document.querySelector("#name").value,
+        quiz: quiz,
         score: score
     };
 
@@ -74,14 +97,6 @@ document.querySelector("#submit").addEventListener("click", function() {
 });
 
 // Clicking the "Code Quiz" in the header/nav bar
-document.querySelector(".nav-center").addEventListener("click", function() {
-    // Incase the user clicks in the middle of a quiz, stops the quiz and resets the on screen variables
-    clearInterval(timer);
-    timer_text.textContent = time_limit;
-    status_section.innerHTML = "";
-    response.textContent = "";
-    show_only_page(".instruction", "block");
-});
 
 //Clicking the clear button on the high scores page
 document.querySelector("#clear").addEventListener("click", function() {
@@ -94,6 +109,16 @@ document.querySelector("#clear").addEventListener("click", function() {
     // Forces a refresh of the high score page
     show_highscores();
 });
+
+//
+function homePage() {
+    // Incase the user clicks in the middle of a quiz, stops the quiz and resets the on screen variables
+    clearInterval(timer);
+    timer_text.textContent = time_limit;
+    status_section.innerHTML = "";
+    response.textContent = "";
+    show_only_page(".instruction", "block");
+}
 
 // Function to hide all extra pages and show only the targeted one
 function show_only_page(show_element, show_type) {
@@ -109,8 +134,9 @@ function startQuiz() {
     // Remove buttons focus
     document.activeElement.blur();
 
-    // Random sorting of the question array
-    questions = HTMLquestions.sort (function(a, b) {
+    // Chooses the correct language from the data bank and then random sorts the array
+    quiz = this.value;
+    questions = question_bank[quiz].sort (function(a, b) {
         return 0.5 - Math.random();
     });
 
@@ -280,23 +306,42 @@ function show_highscores() {
 
     // Checks for existing high scores, otherwise nothing will show
     if (score_list != null) {
-        // Sorts the score list based on high to low scores
-        score_list.sort(object_compare);
+        // Sorts the score list based on high to low scores and then by quiz type
+        score_list.sort(object_compare_score);
+        score_list.sort(object_compare_quiz);
+
+        // Creates a table object the header info
+        let table_obj = document.createElement("table");
+
+        // Creates a header row object within the table
+        let head_obj = document.createElement("tr");
+        head_obj.innerHTML = "<th>Quiz</th><th>Score</th><th>Name</th>"
+        table_obj.append(head_obj);
+        
+        let body_obj = document.createElement("tbody");
+        table_obj.append(body_obj);
 
         // Iterates through each entry in the high score list
         for (let i = 0; i < score_list.length; i++) {
-            let score_line = document.createElement("div");
-            score_line.textContent = `${score_list[i].score}: ${score_list[i].name}`;
+            let row_quiz = score_list[i].quiz;
+            let row_score = score_list[i].score;
+            let row_name = score_list[i].name;
+
+            // Creates a new row object within the table
+            let row_obj = document.createElement("tr");
 
             // Changes row color based on even or odd condition
             if (i % 2 == 0) {
-                score_line.setAttribute("class", "score-item even");
+                row_obj.setAttribute("class", "score-item even");
             } else {
-                score_line.setAttribute("class", "score-item odd");
+                row_obj.setAttribute("class", "score-item odd");
             }
 
+            row_obj.innerHTML = `<td>${row_quiz}</td><td>${row_score}</td><td>${row_name}</td>`;
+            body_obj.append(row_obj);
+
             // Adds the score to the screen
-            highscore_list.appendChild(score_line);
+            highscore_list.appendChild(table_obj);
         }
     }
 
@@ -307,8 +352,15 @@ function show_highscores() {
 }
 
 // Function used to sort the high score array of objects based on a high to low ordering
-function object_compare(a, b) {
+function object_compare_score(a, b) {
     if (a.score < b.score) return 1;
     if (b.score < a.score) return -1;
+    return 0;
+}
+
+// Function used to sort the high score array of objects based on a high to low ordering
+function object_compare_quiz(a, b) {
+    if (a.quiz > b.quiz) return 1;
+    if (b.quiz > a.quiz) return -1;
     return 0;
 }
