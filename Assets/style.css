@@ -1,21 +1,20 @@
+/***** Document wide color schemes *****/
 :root {
     --dark-back-color: #333;
     --dark-back-font-color: #fff;
+    --odd-colors: #d3d3d3;
+    --even-colors: #808080;
 }
 
+/***** Settings for all elements *****/
 * {
-    /* box-sizing: border-box; */
     padding: 0;
     margin: 0;
 }
 
-body {
-    min-width: 320px;
-}
-
+/***** Header bar settings *****/
 .navbar {
     height: 90px;
-    width: 100%;
     background: var(--dark-back-color);
     color: var(--dark-back-font-color);
     display: flex;
@@ -25,31 +24,6 @@ body {
     font-size: 18px;
 }
 
-.content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-size: 18px;
-}
-
-.highscores {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 18px;
-}
-
-.button-group {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    
-}
-
 .nav {
     padding: 10px 40px;
 }
@@ -57,6 +31,13 @@ body {
 .nav-center {
     font-size: 24px;
     display: none;
+}
+
+
+/***** All pages settings *****/
+/* Restricts the smallest supported screen size */
+body {
+    min-width: 320px;
 }
 
 .main {
@@ -72,43 +53,37 @@ button {
     border-radius: 10px;
 }
 
-.answer-buttons {
-    display: block;
-    margin: 10px 30px;
-}
-
-.question {
-    text-align: justify;
-}
-
-.cards, .results {    
-    display: none;
-}
-
-.status-bars {
-    display: none;
-    padding: 5px;
-    text-align: center;
-    border-bottom: 0.5px solid black;
-    border-left: 0.5px solid black;
-}
-
-.status-content {
-    width: 125px;
-    padding-left: 15px;
-    margin-left: 15px;
-    float: right;
-    /* top: 50px; */
-    display: none;
-}
-
-
 .odd {
-  background-color: lightgray;
+  background-color: var(--odd-colors);
 }
 
 .even {
-  background-color: gray;
+  background-color: var(--even-colors);
+}
+
+.active {
+  background-color: orange;
+}
+
+
+/***** Instruction page settings *****/
+
+
+/***** Score page settings *****/
+.highscores {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+}
+
+.button-group {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
 }
 
 .score-item {
@@ -117,9 +92,50 @@ button {
     text-align: left;
 }
 
+
+/***** Question page and results page settings *****/
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 18px;
+}
+
+.cards, .results {    
+    display: none;
+}
+
+.question {
+    text-align: justify;
+}
+
+.answer-buttons {
+    display: block;
+    margin: 10px 30px;
+}
+
+.status-content {
+    width: 125px;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    display: none;
+}
+
+.status-bars {
+    display: none;
+    padding: 5px;
+    text-align: center;
+    /* Only put borders on 2 sides to keep width the same for adjacent boxes */
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+
+/* Setting adjustments based on small screen sizes */
 @media (min-width: 480px) {
-
-
+    /* Converts the header bar from two rows to one for larger screens */
     .navbar {
         height: 45px;
         flex-direction: row;
@@ -127,18 +143,15 @@ button {
 }
 
 @media (min-width: 685px) {
-
+    /* Shows the "Code Quiz" in the header for larger screens */
     .nav-center {
         display: block;
     }
-
-
 }
 
 @media (min-width: 750px) {
+    /* Shows the question summary for larger screens */
     .status-bars {
         display: block;
     }
-
-
 }
