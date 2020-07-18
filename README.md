@@ -1,4 +1,4 @@
-# Code Quiz
+# [Code Quiz](https://zarlengo.github.io/Code_Quiz/)
 
 ![website snapshot](./Assets/example.jpg)
 
